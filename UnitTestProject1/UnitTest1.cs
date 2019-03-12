@@ -73,5 +73,14 @@ namespace UnitTestProject1
             order.Bonus = delegate (double amount) { return amount > 5.0 ? 2.0 : 0.0; };
             Assert.AreEqual(2.0, order.GetBonus());
         }
+        [TestMethod]
+        public void GetBonusLambda_Test()
+        {
+            order.Bonus = Bonuses.TenPercent; // <- Change to lambda expression
+            Assert.AreEqual(4.5, order.GetBonus());
+
+            order.Bonus = Bonuses.FlatTwoIfAmountMoreThanFive; // <- Change to lambda expression
+            Assert.AreEqual(2.0, order.GetBonus());
+        }
     }
 }
