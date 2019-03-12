@@ -73,6 +73,5 @@ namespace UnitTestProject1
             order.Bonus = Bonuses.FlatTwoIfAmountMoreThanFive; // <- Change to anonymous delegate
             Assert.AreEqual(2.0, order.GetBonus());
         }
-
     }
 }
