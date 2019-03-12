@@ -67,10 +67,10 @@ namespace UnitTestProject1
         [TestMethod]
         public void GetBonusAnonymous_Test()
         {
-            order.Bonus = Bonuses.TenPercent; // <- Change to anonymous delegate
+            order.Bonus = delegate (double amount) { return amount / 10.0; };
             Assert.AreEqual(4.5, order.GetBonus());
 
-            order.Bonus = Bonuses.FlatTwoIfAmountMoreThanFive; // <- Change to anonymous delegate
+            order.Bonus = delegate (double amount) { return amount > 5.0 ? 2.0 : 0.0; };
             Assert.AreEqual(2.0, order.GetBonus());
         }
     }
