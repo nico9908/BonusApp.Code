@@ -76,11 +76,12 @@ namespace UnitTestProject1
         [TestMethod]
         public void GetBonusLambda_Test()
         {
-            order.Bonus = Bonuses.TenPercent; // <- Change to lambda expression
+            order.Bonus = amount => amount / 10.0; // <- Change to lambda expression
             Assert.AreEqual(4.5, order.GetBonus());
 
-            order.Bonus = Bonuses.FlatTwoIfAmountMoreThanFive; // <- Change to lambda expression
+            order.Bonus = amount => amount > 5.0 ? 2.0 : 0.0; // <- Change to lambda expression
             Assert.AreEqual(2.0, order.GetBonus());
         }
+
     }
 }
