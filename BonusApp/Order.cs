@@ -29,9 +29,7 @@ namespace BonusApp
         }
         public double GetValueOfProducts(DateTime date)
         {
-            var result = _products.Where(s => s.AvailableFrom <= date && s.AvailableTo >= date);
-            double total = _products.Sum(s => s.Value);
-            return total;
+            return _products.Where(s => s.AvailableFrom <= date && s.AvailableTo >= date).Sum(s => s.Value); 
         }
         public double GetBonus()
         {
@@ -40,6 +38,10 @@ namespace BonusApp
         public double GetTotalPrice()
         {
             return GetValueOfProducts()-GetBonus();
+        }
+        public List<Product> SortProductOrderByAvailableTo()
+        {
+            return _products.OrderBy(s => s.AvailableTo).ToList();
         }
     }
 }
