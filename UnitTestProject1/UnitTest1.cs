@@ -16,19 +16,26 @@ namespace UnitTestProject1
             order.AddProduct(new Product
             {
                 Name = "Mælk",
-                Value = 10.0
+                Value = 10.0,
+                AvailableFrom = new DateTime(2018, 3, 1),
+                AvailableTo = new DateTime(2018, 3, 5)
             });
             order.AddProduct(new Product
             {
                 Name = "Smør",
-                Value = 15.0
+                Value = 15.0,
+                AvailableFrom = new DateTime(2018, 3, 3),
+                AvailableTo = new DateTime(2018, 3, 4)
             });
             order.AddProduct(new Product
             {
                 Name = "Pålæg",
-                Value = 20.0
+                Value = 20.0,
+                AvailableFrom = new DateTime(2018, 3, 4),
+                AvailableTo = new DateTime(2018, 3, 7)
             });
         }
+    
         [TestMethod]
         public void TenPercent_Test()
         {
@@ -82,6 +89,5 @@ namespace UnitTestProject1
             order.Bonus = amount => amount > 5.0 ? 2.0 : 0.0; // <- Change to lambda expression
             Assert.AreEqual(2.0, order.GetBonus());
         }
-
     }
 }

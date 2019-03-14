@@ -27,6 +27,12 @@ namespace BonusApp
         //  }
         //  return valueOfProducts;
         }
+        public double GetValueOfProducts(DateTime date)
+        {
+            var result = _products.Where(s => s.AvailableFrom <= date && s.AvailableTo >= date);
+            double total = _products.Sum(s => s.Value);
+            return total;
+        }
         public double GetBonus()
         {
             return Bonus(GetValueOfProducts());

@@ -12,5 +12,5 @@ namespace BonusApp
         public double Value { get; set; }
         public DateTime AvailableFrom { get; set; }
         public DateTime AvailableTo { get; set; }
-    }
+    } 
 }
