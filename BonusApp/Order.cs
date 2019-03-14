@@ -18,14 +18,14 @@ namespace BonusApp
         }
         public double GetValueOfProducts()
         {
-            double valueOfProducts = 0.0;
-
-            foreach (Product p in _products)
-            {
-                valueOfProducts += p.Value;
-            }
-
-            return valueOfProducts;
+            double total = _products.Sum(s => s.Value);
+            return total;
+        //  double valueOfProducts = 0.0;   
+        //  foreach (Product p in _products)
+        //  {
+        //      valueOfProducts += p.Value;
+        //  }
+        //  return valueOfProducts;
         }
         public double GetBonus()
         {

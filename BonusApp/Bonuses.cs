@@ -12,7 +12,7 @@ namespace BonusApp
     {
         public static double TenPercent (double amount)
         {
-            return amount/10.0;
+            return amount / 10.0;
         }
         public static double FlatTwoIfAmountMoreThanFive(double amount)
         {
